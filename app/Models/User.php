@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public $timestamps = false;
+    // public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
     ];
@@ -43,4 +43,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getSupportStaff(){
+        return $this->belongsTo(SupportStaff::class);
+    }
+
+    public function getMarketingStaff(){
+        return $this->belongsTo(MarketingStaffStaff::class);
+    }
+
+    public function getAdmin(){
+        return $this->belongsTo(Admin::class);
+    }
+
+    public function getCustomer(){
+        return $this->belongsTo(Customer::class);
+    }
 }
