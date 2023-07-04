@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('contact')->unique();
@@ -22,6 +26,7 @@ return new class extends Migration
             $table->timestamp('dob');
             $table->integer('points')->default(0);
             $table->foreignId('user_id')->constrained('users', 'id');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
