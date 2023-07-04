@@ -9,7 +9,12 @@ class Coupon extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+    ];
+
     public function getCustomers(){
-        return $this->hasMany(Customer::class);
+        return $this->belongsToMany(Customer::class);
     }
 }

@@ -9,15 +9,21 @@ class Checkout extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'date' => 'datetime',
+    ];
+
+    public $timestamps = false;
+
     public function getCustomer(){
         return $this->belongsTo(Customer::class);
     }
 
     public function getCustomerCoupon(){
-        return $this->belongsTo(CustomerCoupon::class);
+        return $this->hasOne(CustomerCoupon::class);
     }
 
     public function getProducts(){
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 }

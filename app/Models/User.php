@@ -45,18 +45,18 @@ class User extends Authenticatable
     ];
 
     public function getSupportStaff(){
-        return $this->belongsTo(SupportStaff::class);
+        return $this->hasOne(SupportStaff::class);
     }
 
     public function getMarketingStaff(){
-        return $this->belongsTo(MarketingStaffStaff::class);
+        return $this->hasOne(MarketingStaffStaff::class);
     }
 
     public function getAdmin(){
-        return $this->belongsTo(Admin::class);
+        return $this->hasOne(Admin::class);
     }
 
     public function getCustomer(){
-        return $this->belongsTo(Customer::class);
+        return $this->hasOne(Customer::class);
     }
 }

@@ -10,6 +10,6 @@ class Product extends Model
     use HasFactory;
 
     public function getCheckouts(){
-        return $this->hasMany(Checkout::class);
+        return $this->belongsToMany(Checkout::class);
     }
 }

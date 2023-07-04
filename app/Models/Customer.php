@@ -9,6 +9,10 @@ class Customer extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'dob' => 'datetime',
+    ];
+
     public function getUser(){
         return $this->belongsTo(User::class);
     }
@@ -22,6 +26,6 @@ class Customer extends Model
     }
 
     public function getCoupons(){
-        return $this->hasMany(Coupon::class);
+        return $this->belongsToMany(Coupon::class);
     }
 }
