@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('customer_coupons', function (Blueprint $table) {
             $table->id();
-            $table->string('status')->enum('Claimed', 'Redeemed');
+            $table->string('status')->enum('Claimed', 'Redeemed')->default('Claimed');
             $table->string('code')->unique();
+            $table->timestamp('start_date');
+            $table->timestamp('end_date');
             $table->foreignId('customer_id')->constrained('customers', 'id');
             $table->foreignId('coupon_id')->constrained('coupons', 'id');
             $table->timestamps();

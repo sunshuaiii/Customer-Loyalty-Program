@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('gender')->enum('Female', 'Male', '');
             $table->string('status')->enum('New', 'Contacted', 'Interested', 'Not interested');
             $table->text('activity');
+            $table->foreignId('marketing_staff_id')->constrained('marketing_staffs', 'id');
             $table->timestamps();
         });
     }

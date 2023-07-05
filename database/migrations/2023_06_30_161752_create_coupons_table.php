@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->integer('discount');
             $table->integer('redemption_points');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
             $table->text('conditions');
             $table->timestamps();
         });

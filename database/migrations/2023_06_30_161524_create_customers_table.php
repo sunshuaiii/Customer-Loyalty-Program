@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('gender')->enum('Female', 'Male', '');
             $table->timestamp('dob');
             $table->integer('points')->default(0);
-            $table->foreignId('user_id')->constrained('users', 'id');
+            $table->integer('spending_score')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

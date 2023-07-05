@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
             $table->timestamp('date');
-            $table->foreignId('customer_coupon_id')->constrained('customer_coupons', 'id');
+            $table->string('payment_method')->enum('Credit Card', 'Debit Card', 'Caash', 'E-wallet');
             $table->foreignId('customer_id')->constrained('customers', 'id');
-        });
+            $table->integer('customer_coupon_id')->unsigned()->nullable();
+            $table->foreign('customer_coupon_id')->references('id')->on('customer_coupons');        });
     }
 
     /**

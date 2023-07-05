@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('category')->enum('Beverages', 'Dairy', 'Cereals', 'Health', 'Fresh Food', 'Frozen', 
                 'Delicatessen', 'Confectionary', 'Household Cleaning', 'Fabric Wash', 'Personal Wash', 'Hair Care',
                 'Facial & Skin Care', 'Oral Care', 'Sanitary Napkins', 'Diapers', 'Unknown')->default('Unknown');
-            $table->string('brand');
             $table->timestamps();
         });
     }
